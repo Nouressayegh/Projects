@@ -13,14 +13,13 @@ probability_distribution_k = Markov_chain_functions.probability_distribution_k
 frequency_distribution_k = Markov_chain_functions.frequency_distribution_k
 continuous_curves=Markov_chain_functions.continuous_curves
 
-####Q2####
+
 
 #the importation of the matrix
 P1=Markov_chain_functions.extract_transition_matrix("transition_matrix_q2.csv")
 I=[0,1,2,3,4,5,6,7,8,9,10,11]
 
-#2_a
-print('Question 2-a')
+
 
 #We extract the eigen vector and save the frequecy distribution in a file 
 
@@ -30,8 +29,6 @@ n = 10000
 frequency_distribution_k("transition_matrix_q2.csv", 11, n, histogram = True, ini = 0, state_space = I)
 
 
-##############################################################################################
-print( "Question 2-b")
 
 proba_X = []
 for k in range(5):
@@ -39,24 +36,19 @@ for k in range(5):
 
 print(proba_X)
 
-###Q3###
+
 I2=[1,2,3,4,5,6,7,8,9,10,11]
-#3_a
+
 #we create the transition matrix of this new Markov Chain in the file "transition_matrix.csv"
 print( "Question 3-a :")
 P2=Markov_chain_functions.extract_transition_matrix("transition_matrix.csv")
 print(P2)
 
-#3_b
-print("Question 3-b :")
 
 asymptotic_proba = probability_distribution_k("transition_matrix.csv",k = 100000,histogram = True,ini=10,state_space=[])
 print(asymptotic_proba)
 
 
-#3_c
-
-print("Question 3-c :")
 
 #the two files are in the zip document
 fichier3 = "subclass_1.csv"
@@ -67,8 +59,6 @@ invariant2 = invariant_distribution(matrix_file = fichier4,histogram = False, st
 print("the asymptotic probability distribution of the first subclasse {6,7,8,9} is: ",invariant2)
 print(invariant1 + invariant2)
 
-#3_d
-print("Question 3-d :")
 
 
 def simulate_T10f(matrix_file,k,ini):
@@ -80,8 +70,6 @@ def simulate_T10f(matrix_file,k,ini):
 chain_t10f = simulate_T10f("transition_matrix.csv",k =1000,ini =10)
 print("The Markov chain after it leaves the states 10 for another other than 11 is: ",chain_t10f)
 
-#3-e
-print("Question 3-e :")
 
 continuous_curves([0,1,2,3,4,5,6,7,8,9,10],asymptotic_proba, plot_name= "plot.png", X_name = "X", Y_name = "Y",X2 = [], Y2 = [ ])
 
